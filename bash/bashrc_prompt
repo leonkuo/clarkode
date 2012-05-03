@@ -1,0 +1,14 @@
+# vi:set ft=sh:
+#
+# Author: Clark WANG <dearvoid @ gmail.com>
+#
+
+function set_PS1()
+{
+    local tty=$( tty | sed -e s@/dev/@@ )
+    local c1='\[\e[0;36m\]'
+    local c0='\[\e[0m\]'
+
+    PS1="$c1-($c0\u$c1@$c0\h$c1:$c0$tty$c1)-($c0\w$c1)-\n $c1[$c0$$ $?$c1]$c0 \\$ "
+}
+set_PS1
