@@ -1,0 +1,25 @@
+# vi:set ft=sh:
+#
+# Author: Clark WANG <dearvoid @ gmail.com>
+#
+
+#
+# cd ....<TAB>         ==>  cd ../../../
+# cd foo/.../bar<TAB>  ==>  cd foo/../../bar
+#
+function _compgen_cd
+{
+    local cur=$2
+
+    [[ $cur == *...* ]] || return
+
+    while [[ ! -d $cur && $cur == *...* ]]; do
+        cur=${cur/.../../..}
+    done
+
+    [[ -d $cur && $cur != */ ]] && cur=$cur/
+
+    COMPREPLY[0]=$cur
+    COMPREPLY[1]=$cur/
+}
+complete -d -F _compgen_cd -o bashdefault cd
