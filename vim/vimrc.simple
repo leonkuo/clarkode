@@ -17,6 +17,8 @@ if has("syntax")
     syntax on
 endif
 
+"" settings """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
  set   autoindent
  set   backspace=indent,eol,start
  set nobackup
@@ -39,6 +41,8 @@ if v:version >= 700
     set completeopt=menu
 endif
 
+"" functions """""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
 function SwitchTabStop()
     if &tabstop == 8
         setl tabstop=4
@@ -52,6 +56,10 @@ function SwitchTabStop()
     endif
     echo "ts=" . &tabstop . " sw=" . &shiftwidth
 endfunction
+
+"" mappings """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+
+ inoremap jj <ESC> 
 
  nnoremap - 2<C-W>-
  nnoremap + 2<C-W>+
