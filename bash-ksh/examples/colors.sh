@@ -1,5 +1,4 @@
-#!/bin/bash
-# vi:set ts=8 sw=4 et sta:
+# vi:set ft=sh:
 #
 # This file echoes a bunch of color codes to the terminal to demonstrate
 # what's available. Each line is the color code of one foreground color,

@@ -1,5 +1,4 @@
-#
-# vi:set ts=8 sw=4 et sta:
+# vi:set ft=sh:
 #
 # Author: Clark WANG <dearvoid at gmail.com>
 #
