@@ -1,7 +1,7 @@
 #!/usr/bin/ksh
 # vi:set ts=8 sw=4 et sta:
 #
-# Author: Clark WANG <dearvoid @ gmail.com>
+# Author: Clark WANG <dearvoid at gmail.com>
 #
 #--------------------------------------------------------------------#
 
@@ -56,7 +56,7 @@ Options:
     -s SECS     Specifies sections of the manual to search
     -v          Verbose mode
 
-Report bugs to Clark WANG <dearvoid @ gmail.com>.
+Report bugs to Clark WANG <dearvoid at gmail.com>.
 END
 
     exit $nExit

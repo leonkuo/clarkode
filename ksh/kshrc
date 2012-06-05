@@ -1,6 +1,6 @@
 # vi:set ft=sh:
 #
-# Author: Clark WANG <dearvoid @ gmail.com>
+# Author: Clark WANG <dearvoid at gmail.com>
 #
 
 function set_PS1

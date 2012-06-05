@@ -1,6 +1,6 @@
 """""""""""""""""""""""""""""""""""""""" vi:set ts=8 sw=4 et ft=vim: "
 "   File: $HOME/.vimrc
-" Author: Clark WANG <dearvoid @ gmail.com>
+" Author: Clark WANG <dearvoid at gmail.com>
 "
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 if v:version < 600

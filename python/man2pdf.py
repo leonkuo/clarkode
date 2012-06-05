@@ -1,7 +1,7 @@
 #!/usr/bin/python
 # vi:set ts=8 sw=4 sta et:
 #
-# Author: Clark WANG <dearvoid @ gmail.com>
+# Author: Clark WANG <dearvoid at gmail.com>
 #
 #--------------------------------------------------------------------#
 
@@ -41,7 +41,7 @@ Usage: %s -h
                 Verbose
     -w          Do not create PDF. Only show which file to use.
 
-Report bugs to \033[1;35mClark WANG \033[0m<dearvoid @ gmail.com>.''' % (g['progname'], g['progname'], g['progname'])
+Report bugs to \033[1;35mClark WANG \033[0m<dearvoid at gmail.com>.''' % (g['progname'], g['progname'], g['progname'])
     sys.exit(exitcode)
 
 def getargs():
