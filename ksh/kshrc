@@ -3,7 +3,7 @@
 # Author: Clark WANG <dearvoid at gmail.com>
 #
 
-function set_PS1
+function set_prompt
 {
     typeset hostname tty c0=$'\033[0m' c1=$'\033[0;36m'
 
@@ -15,4 +15,4 @@ function set_PS1
 
     PS1="$c1-($c0$USER$c1@$c0$tty$c1)-($c0\$PWD$c1)-"$'\n'"$c1 [$c0\$\$ \$?$c1]$c0 # "
 }
-set_PS1
+set_prompt
