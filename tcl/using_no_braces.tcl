@@ -5,7 +5,7 @@
 # Can you program Tcl without using braces and double-quotes? This
 # short script helps you understand the Tcl language better.
 #
-# To show the magic, pass one parameter to the script.
+# To show the magic, run the script with at least one parameters.
 #
 #--------------------------------------------------------------------#
 
