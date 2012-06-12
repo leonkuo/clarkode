@@ -27,13 +27,16 @@ endif
  set   hlsearch
  set   incsearch
  set   listchars=precedes:<,extends:>,tab:>-,trail:.
+ set   report=0
  set   ruler
  set   shiftwidth=4
+ set   showmatch
  set   tabstop=8
  set   undolevels=200
  set nowrap
  set nowrapscan
 
+" status line
  set laststatus=2
  set statusline=\ %3l/%L,%-5(%c%V%)\ %<%F%h%m%r
 
