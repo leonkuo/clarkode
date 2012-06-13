@@ -7,10 +7,19 @@ if v:version < 600
     finish
 endif
 
+" Use Vim settings, rather than Vi settings (much better!).
+" This must be first, because it changes other options as a side effect.
  set nocompatible
 
 if has("autocmd")
+    " Enable file type detection.
     filetype plugin indent on
+
+    " When editing a file, always jump to the last known cursor position.
+    autocmd BufReadPost *
+                \ if line("'\"") > 1 && line("'\"") <= line("$") |
+                \   exe "normal! g`\"" |
+                \ endif
 endif
 
 if has("syntax")
@@ -23,6 +32,7 @@ endif
  set   backspace=indent,eol,start
  set nobackup
  set   expandtab
+" enable this if you edit multiple files
  set   hidden
  set   hlsearch
  set   incsearch
@@ -30,9 +40,10 @@ endif
  set   report=0
  set   ruler
  set   shiftwidth=4
+ set   showcmd
  set   showmatch
  set   tabstop=8
- set   undolevels=200
+ set   undolevels=1000
  set nowrap
  set nowrapscan
 
@@ -62,19 +73,20 @@ endfunction
 
 "" mappings """"""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
- inoremap jj <ESC> 
+"inoremap jj <ESC>
 
- nnoremap - 2<C-W>-
- nnoremap + 2<C-W>+
- nnoremap < 2<C-W><
- nnoremap > 2<C-W>>
+ nnoremap _  <C-W>s
+ nnoremap \| <C-W>v
 
  nnoremap zh <C-W>h
  nnoremap zj <C-W>j
  nnoremap zk <C-W>k
  nnoremap zl <C-W>l
- nnoremap zs <C-W>s
- nnoremap zv <C-W>v
+
+ nnoremap - 2<C-W>-
+ nnoremap + 2<C-W>+
+ nnoremap < 2<C-W><
+ nnoremap > 2<C-W>>
 
  nnoremap #  :call SwitchTabStop()<CR>
  nnoremap F8 :setl list!<CR>
