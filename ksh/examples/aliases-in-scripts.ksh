@@ -14,6 +14,6 @@ function _error
 }
 alias error='_error "[${.sh.file}:$LINENO]"'
 
-error "This is a error message"
+error "This is an error message"
 
 cat $LOGFILE
