@@ -8,12 +8,12 @@
 LOGFILE=/tmp/test.log
 > $LOGFILE
 
-function _debug
+function _error
 {
     echo "$*" >> $LOGFILE
 }
-alias debug='_debug "[${.sh.file}:$LINENO]"'
+alias error='_error "[${.sh.file}:$LINENO]"'
 
-debug "This is a debug message"
+error "This is a error message"
 
 cat $LOGFILE
