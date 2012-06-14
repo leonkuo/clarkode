@@ -16,5 +16,10 @@ function toupper
 v=hello
 echo $v
 
+HELLO=world
+echo $HELLO
+
 toupper v
 echo $v
+toupper $v
+echo $HELLO
