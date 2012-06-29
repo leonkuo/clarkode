@@ -3,11 +3,28 @@
 # Author: Clark WANG <dearvoid at gmail.com>
 #
 
+#
+# The prompt would look like this:
+#
+#    +------------------------ USER (\u)
+#    |      +----------------- HOST (\h)
+#    |      |    +------------ TTY
+#    |      |    |       +---- PWD  (\w)
+#    |      |    |       |
+# -(root@ubuntu:tty1)-(~/tmp)-
+#  [3793 0] #
+#     |  |
+#     |  +-------------------- $? (Return value of last command)
+#     +----------------------- $$ (PID of current shell)
+#
 function set_PS1()
 {
     local tty=$( tty | sed -e s@/dev/@@ )
-    local c1='\[\e[0;36m\]'
-    local c0='\[\e[0m\]'
+    #
+    # If you don't like colors, just set `c1' and `c0' to empty string.
+    #
+    local c1='\[\e[0;36m\]'     # the color you like
+    local c0='\[\e[0m\]'        # the default color
 
     PS1="$c1-($c0\u$c1@$c0\h$c1:$c0$tty$c1)-($c0\w$c1)-\n $c1[$c0$$ \$?$c1]$c0 \\$ "
 }
