@@ -3,6 +3,28 @@
 # Author: Clark WANG <dearvoid at gmail.com>
 #
 
+function _PS1_command()
+{
+    local lastexit=$?
+    local ESC=$'\033'
+
+    #
+    # If $? > 0, highlight it in RED
+    #
+    (( lastexit )) && g_PS1_Qcolor="$ESC[1;31m" || g_PS1_Qcolor=
+
+    #
+    # Show the signal number who (possibly) killed the last command
+    #
+    g_PS1_signal=
+    if (( lastexit > 128 )) && kill -l $(( lastexit - 128 )) > /dev/null 2>&1; then
+        (( g_PS1_signal =  lastexit - 128 ))
+    fi
+
+    # Seems like this is not necessary
+    return $lastexit
+}
+
 #
 # The prompt would look like this:
 #
@@ -12,10 +34,16 @@
 #    |      |    |       +---- PWD  (\w)
 #    |      |    |       |
 # -(root@ubuntu:tty1)-(~/tmp)-
-#  [3793 0] #
-#     |  |
-#     |  +-------------------- $? (Return value of last command)
+#  [1234 130:2] #
+#     |   |  |
+#     |   |  +---------------- $? - 128 (The possible signal)
+#     |   +------------------- $? (Return value of last command)
 #     +----------------------- $$ (PID of current shell)
+#
+# Global vars:
+#
+#  $g_PS1_Qcolor
+#  $g_PS1_signal
 #
 function set_PS1()
 {
@@ -26,6 +54,15 @@ function set_PS1()
     local c1='\[\e[0;36m\]'     # the color you like
     local c0='\[\e[0m\]'        # the default color
 
-    PS1="$c1-($c0\u$c1@$c0\h$c1:$c0$tty$c1)-($c0\w$c1)-\n $c1[$c0$$ \$?$c1]$c0 \\$ "
+    export -n PS1
+
+    if true; then
+        PROMPT_COMMAND=_PS1_command
+        PS1="$c1-($c0\u$c1@$c0\h$c1:$c0$tty$c1)-($c0\w$c1)-\n $c1[$c0$$ \$g_PS1_Qcolor\$?\${g_PS1_signal:+:}\$g_PS1_signal$c1]$c0 \\$ "
+    else
+        # simple one
+        PROMPT_COMMAND=
+        PS1="$c1-($c0\u$c1@$c0\h$c1:$c0$tty$c1)-($c0\w$c1)-\n $c1[$c0$$ \$?$c1]$c0 \\$ "
+    fi
 }
 set_PS1
