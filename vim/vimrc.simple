@@ -49,7 +49,7 @@ endif
 
 " status line
  set laststatus=2
- set statusline=\ %3l/%L,%-5(%c%V%)\ %<%F%h%m%r
+ set statusline=\ %3l~%L,%-5(%c%V%)\ %<%F%h%m%r
 
 if v:version >= 700
     set completeopt=menu
