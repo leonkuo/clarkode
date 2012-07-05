@@ -7,7 +7,7 @@
 
 alias echo='print -r -'
 
-set_var()
+SET_VAR()
 {
     typeset var=$1
 }

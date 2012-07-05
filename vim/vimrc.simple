@@ -31,7 +31,7 @@ endif
  set   autoindent
  set   backspace=indent,eol,start
  set nobackup
- set   expandtab
+"set   expandtab
 " enable this if you edit multiple files
  set   hidden
  set   hlsearch
